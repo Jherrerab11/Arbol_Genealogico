@@ -1,0 +1,289 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+}
+
+/* Barra superior */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: linear-gradient(135deg, #4CAF50, #2E7D32);
+    /* Gradiente atractivo */
+    padding: 10px 20px;
+    color: white;
+}
+
+.header-left {
+    display: flex;
+    align-items: center;
+}
+
+.menu-btn {
+    background-color: transparent;
+    border: none;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+.header-right {
+    display: flex;
+    align-items: center;
+}
+
+/* Estilo para el contenedor de la lista desplegable */
+.search-results-container {
+    position: relative;
+    width: 100%;
+}
+
+/* Estilo de la lista de resultados */
+.search-results-dropdown {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-height: 300px;
+    overflow-y: auto;
+    display: none;
+    /* Se oculta por defecto */
+
+    transition: all 0.3s ease;
+}
+
+/* Personalización de Select2 */
+.select2-container .select2-selection--single {
+    height: 45px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    font-size: 14px;
+}
+
+.select2-container .select2-selection--single .select2-selection__rendered {
+    padding: 0px;
+}
+
+.select2-container--default .select2-results__option--highlighted {
+    background-color: #007bff;
+    color: white;
+}
+
+.user-btn {
+    background-color: transparent;
+    border: none;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+/* Estructura principal */
+.container {
+    display: flex;
+    padding: 20px;
+    width: 65%;
+    text-align: left;
+}
+
+/* Sidebar para la información familiar */
+.sidebar {
+    width: 100%;
+    /* Asegura que ocupe todo el ancho en pantallas pequeñas */
+    margin: 20px auto;
+    background: #f4f4f4;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.sidebar .edit-info h2 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #2E7D32;
+    text-transform: uppercase;
+    font-weight: bold;
+}
+
+.sidebar table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+.sidebar table thead th {
+    background-color: #388E3C;
+    color: white;
+    padding: 10px;
+    text-align: left;
+    font-size: 16px;
+    border: 1px solid #ddd;
+}
+
+.sidebar table tbody td {
+    padding: 10px;
+    font-size: 14px;
+    color: #333;
+    border: 1px solid #ddd;
+}
+
+.sidebar table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.sidebar .delete-btn {
+    background: none;
+    border: none;
+    font-size: 16px;
+    color: #D32F2F;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.sidebar .delete-btn:hover {
+    transform: scale(1.2);
+    color: #B71C1C;
+}
+
+.sidebar .add-btn {
+    display: block;
+    width: 40px;
+    height: 40px;
+    margin: 20px auto;
+    background: #4CAF50;
+    color: white;
+    font-size: 24px;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.sidebar .add-btn:hover {
+    background: #388E3C;
+}
+
+/* Información del paciente */
+.patient-info {
+    position: fixed;
+    margin-top: -20px;
+    right: 0;
+    width: 35%;
+    background: linear-gradient(135deg, #4CAF50, #2E7D32);
+    color: white;
+    padding: 20px;
+    font-family: 'Arial', sans-serif;
+    height: 100%;
+    z-index: 10;
+}
+
+.patient-info h2 {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 15px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.patient-info p {
+    font-size: 16px;
+    line-height: 1.5;
+    margin-bottom: 10px;
+}
+
+.patient-info .family-diseases,
+.patient-info .birth-info {
+    margin-top: 20px;
+    padding: 10px;
+    border-radius: 8px;
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.patient-info .family-diseases p,
+.patient-info .birth-info p {
+    margin: 5px 0;
+    font-size: 15px;
+}
+
+.patient-info strong {
+    font-weight: bold;
+    text-decoration: underline;
+    color: #FFD700;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        /* Cambiar a una columna en pantallas pequeñas */
+        display: flex;
+        padding: 20px;
+        width: 100%;
+        text-align: left;
+    }
+
+    .patient-info {
+        position: relative;
+        /* No pegada al borde derecho en pantallas pequeñas */
+        width: 100%;
+        /* Ocupa todo el ancho disponible */
+        height: auto;
+    }
+
+    .sidebar {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .header-right .search-input {
+        width: 200px;
+        /* Reducir tamaño de búsqueda en móviles */
+    }
+}
+
+@media (max-width: 480px) {
+    .header-left .menu-btn {
+        font-size: 24px;
+        /* Reducir el tamaño del menú en móviles */
+    }
+
+    .header-right .search-input {
+        width: 150px;
+        /* Reducir el tamaño de la barra de búsqueda */
+    }
+
+    .patient-info h2 {
+        font-size: 24px;
+        /* Reducir tamaño de título en pantallas pequeñas */
+    }
+
+    .sidebar .add-btn {
+        font-size: 20px;
+        /* Reducir tamaño del botón agregar */
+    }
+
+    .sidebar table th,
+    .sidebar table td {
+        font-size: 12px;
+        /* Reducir el tamaño de texto en la tabla */
+    }
+
+    .sidebar .delete-btn {
+        font-size: 14px;
+        /* Reducir el tamaño del botón eliminar */
+    }
+}

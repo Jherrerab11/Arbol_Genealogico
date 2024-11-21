@@ -212,21 +212,20 @@
             // Función para eliminar un familiar
             function eliminarFamiliar(id, fila) {
                 // Confirmar la eliminación
-                if (confirm('¿Estás seguro de que quieres eliminar este familiar?')) {
-                    fetch(`api/eliminar_familiar.php?id=${id}`, {
-                            method: 'DELETE', // Método DELETE
-                        })
-                        .then(response => response.json())
-                        .then(data => {
-                            if (data.success) {
-                                // Si la eliminación fue exitosa, eliminar la fila de la tabla
-                                fila.remove();
-                            } else {
-                                alert('Error al eliminar el familiar.');
-                            }
-                        })
-                        .catch(error => console.error('Error:', error));
-                }
+
+                fetch(`api/eliminar_familiar.php?id=${id}`, {
+                        method: 'DELETE', // Método DELETE
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            // Si la eliminación fue exitosa, eliminar la fila de la tabla
+                            fila.remove();
+                        } else {
+                            alert('Error al eliminar el familiar.');
+                        }
+                    })
+                    .catch(error => console.error('Error:', error));
             }
             // Función para añadir una fila con inputs y select
             $('.add-btn').click(function() {
